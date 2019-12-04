@@ -244,7 +244,7 @@ def output_results(results, output_handler=output_result, hide_empty=False):
     # output results in alphabetic order
     path_to_idx = {
         result['client'].path: i for i, result in enumerate(results)}
-    idxs_in_order = [path_to_idx[path] for path in sorted(path_to_idx.keys())]
+    idxs_in_order = [path_to_idx[path] for path in sorted(path_to_idx.keys(), key=str.lower)]
     for i in idxs_in_order:
         output_handler(results[i], hide_empty=hide_empty)
 
